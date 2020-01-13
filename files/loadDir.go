@@ -11,7 +11,7 @@ func LoadDirs(dir string, blacklist []string) ([]File) {
   result := make([]File, 0)
 
   filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
-    if info.IsDir() {
+    if info == nil || info.IsDir() {
       return nil
     }
 

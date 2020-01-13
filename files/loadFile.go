@@ -1,6 +1,7 @@
 package files
 
 import (
+  "errors"
   "strings"
   "io/ioutil"
 )
@@ -12,6 +13,11 @@ func loadFile(path string) (File, error) {
   index := strings.Index(path, ".h")
   if index < 0 {
     header = false
+  }
+
+  cIndex := strings.Index(path, ".c")
+  if index < 0 && cIndex < 0 {
+    return File{}, errors.New("Not a fitting File")
   }
 
   data := string(rawData)

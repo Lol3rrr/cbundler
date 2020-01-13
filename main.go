@@ -12,12 +12,13 @@ import (
 
 func main() {
   dirNamePtr := flag.String("dir", "src", "The root directory of the source code")
-  namePtr := flag.String("name", "shl.h", "The name of the output")
+  namePtr := flag.String("name", "shl", "The name of the output")
   blPtr := flag.String("bl", "", "A comma seperated blacklist of blacklist files")
 
   flag.Parse()
 
   fmt.Printf("Starting... \n")
+  fmt.Printf("Loading Folder: '%s' \n", *dirNamePtr)
 
   blacklist := strings.Split(*blPtr, ",")
   fileList := files.LoadDirs(*dirNamePtr, blacklist)
