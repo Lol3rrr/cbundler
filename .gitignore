@@ -1,2 +1,3 @@
 builds/*
-./*.h
+shl.h
+test.h
